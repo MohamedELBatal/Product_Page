@@ -16,12 +16,13 @@ void main() {
 
   CacheHelper.init();
   configureDependencies();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
 
+  int index = 0 ;
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -41,13 +42,13 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: ScreenUtilInit(
-          designSize: const Size(375, 812),
+          designSize: const Size(430, 932),
           builder: (context, child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               initialRoute: ProductsPage.routeName,
               routes: {
-                ProductsPage.routeName: (context) => const ProductsPage(),
+                ProductsPage.routeName: (context) =>  ProductsPage(index: index,),
               },
             );
           },

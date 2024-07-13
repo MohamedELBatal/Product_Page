@@ -41,7 +41,7 @@ class ProductItem extends StatelessWidget {
                           width: double.infinity,
                           height: 191.h,
                           errorWidget: (context, url, error) =>
-                          const Icon(Icons.error_outline, size: 40)),
+                          const Center(child: CircularProgressIndicator())),
                     ),
                     Padding(
                       padding:
@@ -79,14 +79,14 @@ class ProductItem extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5.h,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: const Text("Nike Air Jordan"),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: Text("Nike Air Jordan"),
                     ),
                     Row(
                       children: [
                         SizedBox(width: 8.w),
-                        Text("${product?.price.toString() ?? ""}"),
+                        Text(product?.price.toString() ?? ""),
                         SizedBox(width: 10.w),
                         const Text("EGP 1200"),
                       ],

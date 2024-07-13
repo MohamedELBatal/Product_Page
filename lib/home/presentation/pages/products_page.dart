@@ -4,16 +4,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_page/config.dart';
 import 'package:task_page/core/enums/enums.dart';
+import 'package:task_page/home/data/models/ProductsModel.dart';
 import 'package:task_page/home/presentation/bloc/home_bloc.dart';
 import 'package:task_page/home/presentation/widgets/product_item.dart';
 
 class ProductsPage extends StatelessWidget {
   static const String routeName = "products";
+  final int index;
+  final ProductsModel? productModel;
 
-  const ProductsPage({super.key});
+  const ProductsPage({super.key, required this.index, this.productModel});
 
   @override
   Widget build(BuildContext context) {
+    var product = productModel?.products?[index];
+
     return BlocProvider(
         create: (context) => getIt<HomeBloc>()
       ..add(const GetProductsEvent()),
@@ -84,9 +89,10 @@ class ProductsPage extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
+            Text("${product?.id??" "}"),
             Expanded(
               child: GridView.builder(
-                itemCount: state.productsModel?.products?.length,
+                itemCount: state.productsModel?.products?.length ,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: (192 / 250),
                     crossAxisCount: 2,

@@ -11,7 +11,6 @@ class HomeDSImpl implements HomeDs {
 
   HomeDSImpl(this.apiManager);
 
-
   @override
   Future<ProductsModel> getProducts() async {
     var response = await apiManager.getData(EndPoint.products);

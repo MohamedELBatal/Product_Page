@@ -94,7 +94,7 @@ class Products {
   String? category;
   double? price;
   double? discountPercentage;
-  double? rating;
+  num? rating;
   int? stock;
   List<String>? tags;
   String? brand;
