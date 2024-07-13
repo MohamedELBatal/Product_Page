@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:task_page/config.dart';
 import 'package:task_page/core/enums/enums.dart';
 import 'package:task_page/home/presentation/bloc/home_bloc.dart';
 import 'package:task_page/home/presentation/widgets/product_item.dart';
@@ -13,12 +14,12 @@ class ProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeBloc, HomeState>(listener: (context, state) {
-      // if(state.addToCart==RequestStatus.success){
-      //   BlocProvider.of<HomeBloc>(context).add(GetCartEvent());
-      // }
-    }, builder: (context, state) {
-      return Scaffold(
+    return BlocProvider(
+        create: (context) => getIt<HomeBloc>()
+      ..add(const GetProductsEvent()),
+    child: BlocBuilder<HomeBloc, HomeState>(
+    builder: (context, state) {
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
@@ -100,6 +101,6 @@ class ProductsPage extends StatelessWidget {
           ],
         ),
       );
-    });
+    }));
   }
 }

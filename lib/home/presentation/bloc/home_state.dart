@@ -6,7 +6,6 @@ class HomeState with _$HomeState {
  @Default(RequestStatus.init)RequestStatus getProductsStatus,
    @Default(0) int currentIndex,
    @Default(0) int cartItems,
-
     ProductsModel? productsModel,
     Failures? productsFailure,
 }) = _HomeState;

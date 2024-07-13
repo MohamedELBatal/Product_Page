@@ -20,7 +20,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   GetProductsUseCase getProductsUseCase;
 
-
   HomeBloc(
       {required this.getProductsUseCase,})
       : super(const HomeState()) {
@@ -35,9 +34,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(state.copyWith(
             getProductsStatus: RequestStatus.success, productsModel: r));
       });
-    });
-    on<ChangeNavBar>((event, emit) {
-      emit(state.copyWith(currentIndex: event.index));
     });
   }
 }

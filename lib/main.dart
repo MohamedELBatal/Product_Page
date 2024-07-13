@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_page/config.dart';
 import 'package:task_page/core/api/api_manager.dart';
+import 'package:task_page/core/cache/shared_pref.dart';
 import 'package:task_page/home/data/data_sources/home_ds_impl.dart';
 import 'package:task_page/home/data/repositories/home_repo_impl.dart';
 import 'package:task_page/home/domain/use_cases/get_products_use_case.dart';
@@ -9,6 +11,11 @@ import 'package:task_page/home/presentation/bloc/home_bloc.dart';
 import 'package:task_page/home/presentation/pages/products_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  CacheHelper.init();
+  configureDependencies();
   runApp(const MyApp());
 }
 
