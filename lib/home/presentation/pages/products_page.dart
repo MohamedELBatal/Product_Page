@@ -89,7 +89,6 @@ class ProductsPage extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-            Text("${product?.id??" "}"),
             Expanded(
               child: GridView.builder(
                 itemCount: state.productsModel?.products?.length ,
