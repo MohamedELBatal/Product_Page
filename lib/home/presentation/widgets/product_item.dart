@@ -65,30 +65,30 @@ class ProductItem extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 8.h),
+              SizedBox(height: 10.h),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 8.w),
+                      padding: EdgeInsets.only(left: 8.w, top: 25.h),
                       child: Text(
-                        product?.title?[index]?? "",
+                        product?.title?? "",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     SizedBox(height: 5.h,),
-                    const Padding(
+                     Padding(
                       padding: EdgeInsets.only(left: 8.0),
-                      child: Text("Nike Air Jordan"),
+                      // child: Text("${product?.title?[index]}"),
                     ),
                     Row(
                       children: [
                         SizedBox(width: 8.w),
-                        Text(product?.price.toString() ?? ""),
+                        Text("EGP ${product?.price.toString() ?? ""}"),
                         SizedBox(width: 10.w),
-                        const Text("EGP 1200"),
+                        // const Text("EGP 1200"),
                       ],
                     ),
                     SizedBox(height: 5.h),
@@ -98,14 +98,14 @@ class ProductItem extends StatelessWidget {
                       EdgeInsets.only(left: 8.w, bottom: 13.h, right: 8.w),
                       child: Row(
                         children: [
-                          const Text("Review"),
-                          SizedBox(width: 4.w),
+                          const Text("Review  "),
+                          SizedBox(width: 2.w),
                           Text(product?.rating.toString() ?? ""),
                           SizedBox(width: 4.w),
-                          const Text("(4.5)"),
+                          // const Text("(4.5)"),
                           const Icon(
                             Icons.star,
-                            color: Colors.yellow,
+                            color: Colors.amber,
                           ),
                           const Spacer(),
                           InkWell(

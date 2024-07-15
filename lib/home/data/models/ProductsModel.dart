@@ -88,25 +88,25 @@ class Products {
     images = json['images'] != null ? json['images'].cast<String>() : [];
     thumbnail = json['thumbnail'];
   }
-  int? id;
+  num? id;
   String? title;
   String? description;
   String? category;
-  double? price;
-  double? discountPercentage;
+  num? price;
+  num? discountPercentage;
   num? rating;
-  int? stock;
+  num? stock;
   List<String>? tags;
   String? brand;
   String? sku;
-  int? weight;
+  num? weight;
   Dimensions? dimensions;
   String? warrantyInformation;
   String? shippingInformation;
   String? availabilityStatus;
   List<Reviews>? reviews;
   String? returnPolicy;
-  int? minimumOrderQuantity;
+  num? minimumOrderQuantity;
   Meta? meta;
   List<String>? images;
   String? thumbnail;
@@ -190,7 +190,7 @@ class Reviews {
     reviewerName = json['reviewerName'];
     reviewerEmail = json['reviewerEmail'];
   }
-  int? rating;
+  num? rating;
   String? comment;
   String? date;
   String? reviewerName;
@@ -219,9 +219,9 @@ class Dimensions {
     height = json['height'];
     depth = json['depth'];
   }
-  double? width;
-  double? height;
-  double? depth;
+  num? width;
+  num? height;
+  num? depth;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
