@@ -31,17 +31,20 @@ class ProductItem extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.r),
+                    Padding(
+                      padding:  EdgeInsets.only(top: 8.h),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.r),
+                        ),
+                        child: CachedNetworkImage(
+                            imageUrl: product?.images?.first ?? "",
+                            fit: BoxFit.fitHeight,
+                            width: double.infinity,
+                            height: 191.h,
+                            errorWidget: (context, url, error) =>
+                            const Center(child: CircularProgressIndicator())),
                       ),
-                      child: CachedNetworkImage(
-                          imageUrl: product?.images?.first ?? "",
-                          fit: BoxFit.fill,
-                          width: double.infinity,
-                          height: 191.h,
-                          errorWidget: (context, url, error) =>
-                          const Center(child: CircularProgressIndicator())),
                     ),
                     Padding(
                       padding:
